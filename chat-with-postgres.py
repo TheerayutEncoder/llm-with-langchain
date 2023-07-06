@@ -6,12 +6,13 @@ load_dotenv()
 
 # Accessing the OPENAI KEY
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+DBUSER = os.getenv('DBUSER')
 DATABASE = os.getenv('DATABASE')
 DBPASS = os.getenv('DBPASS')
 
 # Setup database
 db = SQLDatabase.from_uri(
-    f"postgresql+psycopg2://top:{DBPASS}@localhost:5432/{DATABASE}",
+    f"postgresql+psycopg2://{DBUSER}:{DBPASS}@localhost:5432/{DATABASE}",
 )
 
 # setup llm
